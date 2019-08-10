@@ -29,6 +29,26 @@ use App\Reply;
         <h1>Replies</h1>
 
 
+        <h1>Replies (<span class="newResponsesCount">{{ Reply::newReplyCount() }}</span>)</h1>
+
+
+        @if(Session::has('flash_message_error'))
+
+        <div class="alert alert-error alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button> 
+          <strong>{!! session('flash_message_error') !!}</strong>
+        </div>
+        @endif   
+        @if(Session::has('flash_message_success'))
+          <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button> 
+            <strong>{!! session('flash_message_success') !!}</strong>
+          </div>
+   
+
+
+        @endif
+
 
         <table id="replies" class="table table-dark">
             
@@ -61,14 +81,14 @@ use App\Reply;
 
 
             <tr>
-             <th @if($reply->viewed==0) style="font-weight:bold; color: #9FC3FF;" @endif>{{ $nameofsender }}</th>
+             <th class="rel1-{{ $reply->id }}" @if($reply->viewed==0) style="font-weight:bold; color: #9FC3FF;" @endif>{{ $nameofsender }}</th>
 
-             <th @if($reply->viewed==0) style="font-weight:bold; color: #9FC3FF;" @endif>{{ $cityofsender }}</th>
+             <th class="rel1-{{ $reply->id }}" @if($reply->viewed==0) style="font-weight:bold; color: #9FC3FF;" @endif>{{ $cityofsender }}</th>
 
-             <th @if($reply->viewed==0) style="font-weight:bold; color: #9FC3FF;" @endif>{{ substr($reply->message,0,10) }}<a title="View Details of Reply" data-toggle="modal" data-target="#myReplies{{ $reply->id }}">...</a></th>
+             <th class="rel1-{{ $reply->id }}" @if($reply->viewed==0) style="font-weight:bold; color: #9FC3FF;" @endif>{{ substr($reply->message,0,10) }}<a title="View Details of Reply" data-toggle="modal" data-target="#myReplies{{ $reply->id }}">...</a></th>
             
 
-             <th @if($reply->viewed==0) style="font-weight:bold; color: #9FC3FF;" @endif>{{ $reply->created_at }}</th>
+             <th class="rel1-{{ $reply->id }}" @if($reply->viewed==0) style="font-weight:bold; color: #9FC3FF;" @endif>{{ $reply->created_at }}</th>
 
               <th>
                   
@@ -87,7 +107,7 @@ use App\Reply;
                   </a>
                   
 
-                  <button class="btn btn-primary" data-toggle="modal" data-target="#myReplies{{ $reply->id }}">View Details</button>
+                  <button class="btn btn-primary updateReply" rel="{{ $reply->id }}" data-toggle="modal" data-target="#myReplies{{ $reply->id }}">View Details</button>
 
                      <!-- CONTACT MODAL -->
                       <div class="modal fade text-dark" id="myReplies{{ $reply->id }}">

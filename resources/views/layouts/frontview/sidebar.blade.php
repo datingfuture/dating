@@ -3,6 +3,8 @@
 use App\User;
 use App\Country;
 
+use App\Reply;
+
 $filloutformCount = User::filloutformProfileExists(Auth::User()['id']);
 
 if($filloutformCount==1){
@@ -76,6 +78,9 @@ if($filloutformCount==1){
 
 
               @endif 
+
+
+               <p><a href="{{ url('/replies') }}">Replies (<span class="newReplyCount">{{ Reply::newReplyCount() }}</span>)</a></p>
 
 
                 <form action="{{ url('/search') }}" method="post">{{ csrf_field() }}

@@ -150,7 +150,7 @@ $().ready(function() {
                 $(".rel1-"+reply_id).addClass('viewdReply');
                 $(".newReplyCount").html(resp);
             },error:function(){
-                alert("Error");
+                // alert("Error");
             }
         })
 
