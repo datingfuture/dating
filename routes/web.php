@@ -75,6 +75,8 @@ Route::match(['get','post'],'/contact/{username}','UsersController@contactUser')
 
 Route::get('/delete-reply/{id}','UsersController@deleteReply');
 
+ Route::post('/update-reply','UsersController@updateReply');
+
 
 });
 

@@ -136,25 +136,51 @@ $().ready(function() {
    
     $('#replies').DataTable();
 
-    
-
+  
 
     $(".updateReply").click(function(){
         
-         var reply_id = $(this).attr('rel');
-        $.ajax({
-            type:'post',
-            url:'/update-reply',
-            data:{reply_id:reply_id},
-            success:function(repl){
-                alert(repl);
-                $(".rel1-"+reply_id).addClass('viewdReply');
-                $(".newReplyCount").html(repl);
-            },error:function(){
-                // alert("Error");
-            }
-        })
-
+         var reply_id = $(this).attr('rel'); 
+        alert(reply_id);
     });
 
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

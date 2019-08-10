@@ -482,6 +482,18 @@ class UsersController extends Controller
 
 
 
+ public function updateReply(Request $request) {
+
+  
+        if($request->isMethod('post')){
+
+          $data = $request->all();
+
+          echo "<pre>"; print_r($data); die;
+        }
+   }
+
+
            
 
 }

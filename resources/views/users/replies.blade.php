@@ -1,5 +1,11 @@
+<?php use App\User;
 
-<?php use App\User; ?>
+
+use App\Reply;
+
+
+
+ ?>
 
 
 
@@ -48,9 +54,7 @@
              $nameofsender = User::getNameofsender($reply->sender_id);
              $cityofsender = User::getCityofsender($reply->sender_id);
              $usernameofsender = User::getUsernameofuser($reply->sender_id);
-
              $encoded_message = encrypt($reply->message);
-
              ?>
 
 
@@ -68,7 +72,7 @@
 
               <th>
                   
-                   <a title="View Details of Reply" href="#"><i class="fa fa-file-text" aria-hidden="true"></i></a>
+                   <a class="updateReply" rel="{{ $reply->id }}" title="View Details" href="#myReplies{{ $reply->id }}"><i class="fa fa-file-text" aria-hidden="true"></i></a>
 
                   &nbsp;
 
@@ -142,117 +146,3 @@
 
 
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
