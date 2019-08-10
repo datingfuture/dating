@@ -482,16 +482,19 @@ class UsersController extends Controller
 
 
 
- public function updateReply(Request $request) {
+public function updateReply(Request $request) {
 
-  
-        if($request->isMethod('post')){
+     if($request->isMethod('post')){
 
-          $data = $request->all();
+      $data = $request->all();
 
-          echo "<pre>"; print_r($data); die;
-        }
+      // echo "<pre>"; print_r($data); die;
+
+
+      Reply::where('id',$data['reply_id'])->update(['viewed'=>1]);
+     }
    }
+
 
 
            

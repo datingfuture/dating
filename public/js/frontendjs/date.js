@@ -140,9 +140,22 @@ $().ready(function() {
 
     $(".updateReply").click(function(){
         
-         var reply_id = $(this).attr('rel'); 
-        alert(reply_id);
+         var reply_id = $(this).attr('rel');
+        $.ajax({
+            type:'post',
+            url:'/update-reply',
+            data:{reply_id:reply_id},
+            success:function(resp){
+                alert(resp);
+                $(".rel1-"+reply_id).addClass('viewdReply');
+                $(".newReplyCount").html(resp);
+            },error:function(){
+                alert("Error");
+            }
+        })
+
     });
+
 
 
 });
